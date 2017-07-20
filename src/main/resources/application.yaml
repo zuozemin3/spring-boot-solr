@@ -1,0 +1,36 @@
+#服务信息
+info:
+    app:
+        name: spring-boot-solr
+        description: spring-boot-solr
+        owner:
+            - zuozmein
+        emails:
+            - badmeetevil@qq.com
+        env: ${SPRING_PROFILES_ACTIVE}
+        java-version: ${java.version}
+
+#默认环境配置
+server:
+    port: 8081
+
+
+#dev环境相关配置,覆盖上面的默认配置
+---
+spring:
+    profiles: dev
+solr:
+  zkHost: 127.0.0.1:2181
+
+
+#pub环境相关配置,覆盖上面的默认配置
+---
+spring:
+    profiles: qa
+
+
+#prod环境相关配置,覆盖上面的默认配置
+---
+spring:
+    profiles: prod
+
