@@ -12,9 +12,14 @@ public class SolrCloudConfig {
     @Value("${solr.zkHost}")
     private String zkHost;
 
+    @Value("${solr.collection}")
+    private String collection;
+
     @Bean
     public CloudSolrClient solrServer() {
-        return new CloudSolrClient(zkHost);
+        CloudSolrClient cloudSolrClient = new CloudSolrClient(zkHost);
+        cloudSolrClient.setDefaultCollection(collection);
+        return cloudSolrClient;
     }
 
     @Bean

@@ -20,7 +20,8 @@ server:
 spring:
     profiles: dev
 solr:
-  zkHost: 127.0.0.1:2181
+  zkHost: 127.0.0.1:9983
+  collection: collection1
 
 
 #pub环境相关配置,覆盖上面的默认配置
